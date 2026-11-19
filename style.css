@@ -1779,3 +1779,16 @@ main {
   font-style: italic;
   margin-top: 15px;
 }
+.music-reminder {
+  margin: 22px auto;
+  text-align: center;
+  line-height: 1.8;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.music-reminder p:first-child {
+  color: var(--gold);
+  font-size: 14px;
+  letter-spacing: 2px;
+}
