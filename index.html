@@ -1,0 +1,439 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#08070a">
+  <meta name="description" content="A little birthday surprise made for Musu.">
+
+  <title>For Musu ♡</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div id="particles" aria-hidden="true"></div>
+
+  <audio id="bgMusic" loop preload="none">
+    <source src="assets/music/romantic.mp3" type="audio/mpeg">
+  </audio>
+
+  <button id="musicToggle" class="music-toggle" aria-label="Toggle music">
+    ♫ <span id="musicLabel">Music off</span>
+  </button>
+
+  <main>
+
+    <!-- SCENE 1: WELCOME (UNCHANGED) -->
+    <section class="scene active" id="scene1">
+      <div class="welcome-content">
+
+        <p class="eyebrow reveal">A LITTLE SOMETHING FOR YOU</p>
+
+        <div class="moon">☾</div>
+
+        <h1 class="hero-title reveal">
+          Some stories<br>
+          begin with a <em>feeling.</em>
+        </h1>
+
+        <p class="subtext reveal">
+          And this one begins with someone special.
+        </p>
+
+        <button class="gold-button" data-next="scene2">
+          Enter your little world <span>→</span>
+        </button>
+
+        <p class="tiny-note">
+          Made of memories, moments & little surprises
+        </p>
+
+      </div>
+    </section>
+
+
+    <!-- SCENE 2: EMOTIONAL INTRO (UNCHANGED) -->
+    <section class="scene" id="scene2">
+      <div class="content">
+
+        <p class="eyebrow">BEFORE THE CELEBRATION</p>
+
+        <h2 class="section-title">
+          Some people make life<br>
+          a little more <em>beautiful.</em>
+        </h2>
+
+        <p class="story-text">
+          Not because everything is perfect.
+          Not because every day is extraordinary.
+          But simply because they exist.
+        </p>
+
+     <p class="story-text">
+  And today, this little space holds
+  something special for you.
+     </p>
+
+        <button class="gold-button" data-next="scene3">
+          Discover who <span>→</span>
+        </button>
+
+      </div>
+    </section>
+
+
+    <!-- SCENE 3: BIRTHDAY REVEAL (UNCHANGED) -->
+    <section class="scene" id="scene3">
+      <div class="content birthday-content">
+
+        <p class="eyebrow">THE DAY IS YOURS</p>
+
+        <div class="birthday-stars">✦　✧　✦</div>
+
+        <h1 class="birthday-title">
+          HAPPY<br>
+          23<sup>RD</sup><br>
+          BIRTHDAY
+        </h1>
+
+        <p class="birthday-subtitle">
+          23 beautiful years of you ♡
+        </p>
+
+        <h2 class="musu-title">Musu ♡</h2>
+
+        <p class="story-text">
+          26 November 2026
+        </p>
+
+        <div id="countdown" class="countdown">
+          <div>
+            <strong id="days">00</strong>
+            <span>Days</span>
+          </div>
+
+          <div>
+            <strong id="hours">00</strong>
+            <span>Hours</span>
+          </div>
+
+          <div>
+            <strong id="minutes">00</strong>
+            <span>Minutes</span>
+          </div>
+
+          <div>
+            <strong id="seconds">00</strong>
+            <span>Seconds</span>
+          </div>
+        </div>
+
+        <p id="birthdayStatus" class="subtext"></p>
+
+        <button class="gold-button" data-next="scene5">
+          Let's continue <span>→</span>
+        </button>
+
+      </div>
+    </section>
+
+
+    <!-- SCENE 5: FUNNY SURPRISE -->
+    <section class="scene" id="scene5">
+      <div class="content">
+
+        <p class="eyebrow">A LITTLE INTERRUPTION 😂</p>
+
+        <h2 class="section-title">
+          Okay, enough Nifuoo <em>🙂‍↔️</em>
+        </h2>
+
+        <p class="story-text">
+          Ini njan korch karyangal parayam,🌝?
+        </p>
+
+        <div class="joke-card">
+          <p id="jokeText">
+            Loading a very important birthday fact...
+          </p>
+        </div>
+
+        <button id="jokeButton" class="outline-button">
+          Reveal another secret 😂
+        </button>
+
+        <button class="gold-button" data-next="scene6">
+          Okay, I'm ready <span>→</span>
+        </button>
+
+      </div>
+    </section>
+
+
+    <!-- SCENE 6: BIRTHDAY CAKE -->
+    <section class="scene" id="scene6">
+      <div class="content cake-content">
+
+        <p class="eyebrow">A MOMENT JUST FOR YOU</p>
+
+        <h2 class="section-title">
+          Make a <em>wish.</em>
+        </h2>
+
+        <p class="story-text">
+          Close your eyes, think of something beautiful,
+          and make a wish.
+        </p>
+
+        <div class="cake-area realistic-cake">
+
+          <div class="cake-glow"></div>
+
+          <div class="candle">
+            <div class="flame" id="flame"></div>
+          </div>
+
+          <div class="cake-top">
+            <span class="berry berry-one">♥</span>
+            <span class="berry berry-two">♥</span>
+            <span class="berry berry-three">♥</span>
+
+            <span class="cream-pipe pipe-one">✿</span>
+            <span class="cream-pipe pipe-two">✿</span>
+            <span class="cream-pipe pipe-three">✿</span>
+          </div>
+
+          <div class="cake-body-real">
+
+            <div class="chocolate-top"></div>
+
+            <div class="chocolate-drip drip-one"></div>
+            <div class="chocolate-drip drip-two"></div>
+            <div class="chocolate-drip drip-three"></div>
+
+            <div class="cake-writing">23 ♡</div>
+
+            <div class="cake-ornament">
+              ──── ♡ ────
+            </div>
+
+            <div class="bottom-cream"></div>
+
+          </div>
+
+          <div class="cake-plate"></div>
+
+        </div>
+
+        <p id="wishMessage" class="subtext">
+          Your wish is waiting...
+        </p>
+
+        <button id="blowButton" class="gold-button">
+          Blow out the candle ✨
+        </button>
+
+        <button id="relightButton" class="outline-button hidden">
+          Light it again
+        </button>
+
+        <!-- Appears after the candle is blown out -->
+        <button id="cakeContinue" class="text-button hidden" data-next="scene4">
+          Let's look at some memories ♡ →
+        </button>
+
+      </div>
+    </section>
+
+
+    <!-- SCENE 4: MEMORIES (NOW AFTER THE CAKE) -->
+    <section class="scene" id="scene4">
+      <div class="content wide-content">
+
+        <p class="eyebrow">A LITTLE JOURNEY BACK IN TIME</p>
+
+        <h2 class="section-title">
+          Our little <em>memories.</em>
+        </h2>
+
+        <p class="story-text">
+          Some moments become memories...
+          and some memories become treasures.
+        </p>
+
+        <p class="subtext">
+          Let's take a little walk through these beautiful moments. ♡
+        </p>
+
+        <div class="photo-gallery" id="photoGallery">
+
+          <figure class="photo-card">
+            <img src="assets/photos/photo1.jpg" alt="Musu memory 1">
+            <figcaption>A beautiful little moment ♡</figcaption>
+          </figure>
+
+          <figure class="photo-card">
+            <img src="assets/photos/photo2.jpg" alt="Musu memory 2">
+            <figcaption>Some memories stay forever.</figcaption>
+          </figure>
+
+          <figure class="photo-card">
+            <img src="assets/photos/photo3.jpg" alt="Musu memory 3">
+            <figcaption>A moment worth remembering.</figcaption>
+          </figure>
+
+          <figure class="photo-card">
+            <img src="assets/photos/photo4.jpg" alt="Musu memory 4">
+            <figcaption>Little things, big feelings.</figcaption>
+          </figure>
+
+          <figure class="photo-card">
+            <img src="assets/photos/photo5.jpg" alt="Musu memory 5">
+            <figcaption>Keep smiling like this.</figcaption>
+          </figure>
+
+          <figure class="photo-card">
+            <img src="assets/photos/photo6.jpg" alt="Musu memory 6">
+            <figcaption>One for the memory book.</figcaption>
+          </figure>
+
+          <figure class="photo-card">
+            <img src="assets/photos/photo7.jpg" alt="Musu memory 7">
+            <figcaption>Another lovely chapter.</figcaption>
+          </figure>
+
+          <figure class="photo-card">
+            <img src="assets/photos/photo8.jpg" alt="Musu memory 8">
+            <figcaption>And the story goes on...</figcaption>
+          </figure>
+
+          <figure class="photo-card">
+            <img src="assets/photos/photo9.jpg" alt="Musu memory 9">
+            <figcaption>Unforgettable, just like you.</figcaption>
+          </figure>
+
+          <figure class="photo-card">
+            <img src="assets/photos/photo10.jpg" alt="Musu memory 10">
+            <figcaption>A little piece of happiness.</figcaption>
+          </figure>
+
+        </div>
+
+        <p id="photoCounter" class="memory-counter">01 / 10</p>
+
+        <div class="photo-controls">
+          <button id="previousPhoto" class="outline-button">
+            ← Previous
+          </button>
+
+          <button id="nextPhotoButton" class="gold-button">
+            Next memory →
+          </button>
+        </div>
+
+        <p class="tiny-note">
+          Every picture holds a little piece of a beautiful story.
+        </p>
+
+        <button class="gold-button" data-next="scene7">
+          Continue to something special ♡ →
+        </button>
+
+      </div>
+    </section>
+
+
+    <!-- SCENE 7: HEARTFELT LETTER -->
+    <section class="scene" id="scene7">
+      <div class="content letter-content">
+
+        <p class="eyebrow">A FEW WORDS FROM THE HEART</p>
+
+        <h2 class="section-title">
+          Dear <em>Musu,</em>
+        </h2>
+
+        <div class="letter-paper">
+          <p id="letterText"></p>
+          <span class="letter-cursor">|</span>
+        </div>
+
+        <button id="letterButton" class="gold-button">
+          Open your letter ♡
+        </button>
+
+        <button class="gold-button hidden" id="letterNext" data-next="scene8">
+          One last thing... <span>→</span>
+        </button>
+
+      </div>
+    </section>
+
+
+    <!-- SCENE 8: EMOTIONAL FINALE -->
+    <section class="scene" id="scene8">
+      <div class="content final-content">
+
+        <div class="final-star">✧</div>
+
+        <p class="eyebrow">AND BEFORE YOU GO...</p>
+
+        <h1 class="final-title">
+          Some people<br>
+          are simply <em>unforgettable.</em>
+        </h1>
+
+        <p class="final-message">
+          May your life be filled with beautiful surprises,
+          genuine happiness, endless laughter and all the
+          love your heart deserves.
+        </p>
+
+        <h2 class="final-musu">
+          Happy 23rd Birthday, Musu. ♡
+        </h2>
+
+<div class="thank-you-message">
+  <h3>And one last thing... ♡</h3>
+
+  <p>
+    Thank you for taking the time to go through
+    this little surprise. I hope it brought a smile
+    to your face and made your day a little more special.
+  </p>
+
+  <p class="thank-you-highlight">
+    Every little detail was made with love. ♡
+  </p>
+</div>
+
+<div class="sender-signature">
+  <span>With love,</span>
+  <p>Your Salu ikka 🌝</p>
+</div>
+
+        <button id="replayButton" class="outline-button">
+          ↺ Experience it again
+        </button>
+
+        <p class="tiny-note">
+          26 · 11 · 2026
+        </p>
+
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
