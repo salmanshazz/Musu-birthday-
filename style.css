@@ -1779,16 +1779,126 @@ main {
   font-style: italic;
   margin-top: 15px;
 }
-.music-reminder {
-  margin: 22px auto;
+
+
+/* =================================
+   SECRET VAULT PASSWORD PAGE
+================================= */
+
+.password-screen {
+  display: none;
+  min-height: 100vh;
+  width: 100%;
+  padding: 35px 20px;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  line-height: 1.8;
-  font-size: 13px;
-  color: var(--text-muted);
+  background:
+    radial-gradient(ellipse at center, #211925 0%, #08070a 75%);
+  color: var(--ivory);
 }
 
-.music-reminder p:first-child {
+.password-screen.active {
+  display: flex;
+}
+
+.vault-content {
+  width: 100%;
+  max-width: 360px;
+  margin: auto;
+}
+
+.vault-lock {
+  font-size: 55px;
+  margin: 25px 0;
+  filter: drop-shadow(0 0 18px #d8b87866);
+}
+
+.vault-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 43px;
+  line-height: 1.1;
+  color: var(--ivory);
+  font-weight: 500;
+}
+
+.vault-title em {
   color: var(--gold);
-  font-size: 14px;
-  letter-spacing: 2px;
+}
+
+.vault-subtitle {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+  margin: 20px 0;
+}
+
+.password-dots {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 30px 0;
+}
+
+.password-dots span {
+  width: 13px;
+  height: 13px;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  transition: .2s;
+}
+
+.password-dots span.filled {
+  background: var(--gold);
+  box-shadow: 0 0 12px var(--gold);
+}
+
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  max-width: 260px;
+  margin: 0 auto 25px;
+}
+
+.keypad button {
+  height: 52px;
+  border: 1px solid #79654d66;
+  border-radius: 12px;
+  background: #ffffff08;
+  color: var(--ivory);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 19px;
+  cursor: pointer;
+}
+
+.keypad button:active {
+  background: #d8b87833;
+  transform: scale(.95);
+}
+
+#unlockButton {
+  width: 100%;
+}
+
+.password-message {
+  min-height: 25px;
+  margin-top: 20px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.password-screen.unlocking .vault-lock {
+  animation: vaultUnlock .8s ease forwards;
+}
+
+@keyframes vaultUnlock {
+  50% {
+    transform: scale(1.3) rotate(15deg);
+    filter: drop-shadow(0 0 30px var(--gold));
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
 }
