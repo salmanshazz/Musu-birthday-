@@ -31,44 +31,98 @@
 
   <main>
 
-   <!-- SCENE 1: WELCOME -->
-<section class="scene active" id="scene1">
-  <div class="welcome-content">
+    <!-- SECRET PASSWORD PAGE -->
+    <section class="password-screen active" id="passwordScreen">
 
-    <p class="eyebrow reveal">A LITTLE SOMETHING FOR YOU</p>
+      <div class="vault-content">
 
-    <div class="moon">☾</div>
+        <p class="eyebrow">A SECRET LITTLE SURPRISE</p>
 
-    <h1 class="hero-title reveal">
-      Some stories<br>
-      begin with a <em>feeling.</em>
-    </h1>
+        <div class="vault-lock">🔐</div>
 
-    <p class="subtext reveal">
-      And this one begins with someone special.
-    </p>
+        <h1 class="vault-title">
+          Something awaits<br>
+          <em>you...</em>
+        </h1>
 
-    <!-- MUSIC REMINDER -->
-    <div class="music-reminder reveal">
-      <p>♡ Before we begin ♡</p>
-      <p>Put on your headphones 🎧</p>
-      <p>Turn on the music and let the magic begin.</p>
-    </div>
+        <p class="vault-subtitle">
+          But first, prove that you know the secret. ♡
+        </p>
 
-    <button class="gold-button" data-next="scene2">
-      Enter your little world <span>→</span>
-    </button>
+        <div class="password-dots" id="passwordDots">
+          <span></span><span></span><span></span>
+          <span></span><span></span><span></span>
+        </div>
 
-    <p class="tiny-note">
-      Made of memories, moments & little surprises
-    </p>
+        <div class="keypad" id="passwordKeypad">
+          <button type="button" data-key="1">1</button>
+          <button type="button" data-key="2">2</button>
+          <button type="button" data-key="3">3</button>
 
-  </div>
-</section>
+          <button type="button" data-key="4">4</button>
+          <button type="button" data-key="5">5</button>
+          <button type="button" data-key="6">6</button>
+
+          <button type="button" data-key="7">7</button>
+          <button type="button" data-key="8">8</button>
+          <button type="button" data-key="9">9</button>
+
+          <button type="button" data-key="clear">C</button>
+          <button type="button" data-key="0">0</button>
+          <button type="button" data-key="delete">⌫</button>
+        </div>
+
+        <button type="button" id="unlockButton" class="gold-button">
+          Unlock my surprise ♡
+        </button>
+
+        <p id="passwordMessage" class="password-message">
+          Only someone special knows the answer...
+        </p>
+
+        <p class="tiny-note">
+          A little secret stands between you and a surprise. ♡
+        </p>
+
+      </div>
+
+    </section>
 
 
-    <!-- SCENE 2: EMOTIONAL INTRO (UNCHANGED) -->
+    <!-- SCENE 1: WELCOME -->
+    <section class="scene" id="scene1">
+
+      <div class="welcome-content">
+
+        <p class="eyebrow reveal">A LITTLE SOMETHING FOR YOU</p>
+
+        <div class="moon">☾</div>
+
+        <h1 class="hero-title reveal">
+          Some stories<br>
+          begin with a <em>feeling.</em>
+        </h1>
+
+        <p class="subtext reveal">
+          And this one begins with someone special.
+        </p>
+
+        <button class="gold-button" data-next="scene2">
+          Enter your little world <span>→</span>
+        </button>
+
+        <p class="tiny-note">
+          Made of memories, moments & little surprises
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- SCENE 2: EMOTIONAL INTRO -->
     <section class="scene" id="scene2">
+
       <div class="content">
 
         <p class="eyebrow">BEFORE THE CELEBRATION</p>
@@ -84,21 +138,23 @@
           But simply because they exist.
         </p>
 
-     <p class="story-text">
-  And today, this little space holds
-  something special for you.
-     </p>
+        <p class="story-text">
+          And today, this little space holds
+          something special for you.
+        </p>
 
         <button class="gold-button" data-next="scene3">
           Discover who <span>→</span>
         </button>
 
       </div>
+
     </section>
 
 
-    <!-- SCENE 3: BIRTHDAY REVEAL (UNCHANGED) -->
+    <!-- SCENE 3: BIRTHDAY REVEAL -->
     <section class="scene" id="scene3">
+
       <div class="content birthday-content">
 
         <p class="eyebrow">THE DAY IS YOURS</p>
@@ -122,6 +178,7 @@
         </p>
 
         <div id="countdown" class="countdown">
+
           <div>
             <strong id="days">00</strong>
             <span>Days</span>
@@ -141,6 +198,7 @@
             <strong id="seconds">00</strong>
             <span>Seconds</span>
           </div>
+
         </div>
 
         <p id="birthdayStatus" class="subtext"></p>
@@ -150,11 +208,13 @@
         </button>
 
       </div>
+
     </section>
 
 
     <!-- SCENE 5: FUNNY SURPRISE -->
     <section class="scene" id="scene5">
+
       <div class="content">
 
         <p class="eyebrow">A LITTLE INTERRUPTION 😂</p>
@@ -168,13 +228,15 @@
         </p>
 
         <div class="joke-card">
+
           <p id="jokeText">
             Loading a very important birthday fact...
           </p>
+
         </div>
 
         <button id="jokeButton" class="outline-button">
-          Reveal another secret 😂
+          Reveal another secret 😌
         </button>
 
         <button class="gold-button" data-next="scene6">
@@ -182,11 +244,13 @@
         </button>
 
       </div>
+
     </section>
 
 
     <!-- SCENE 6: BIRTHDAY CAKE -->
     <section class="scene" id="scene6">
+
       <div class="content cake-content">
 
         <p class="eyebrow">A MOMENT JUST FOR YOU</p>
@@ -209,6 +273,7 @@
           </div>
 
           <div class="cake-top">
+
             <span class="berry berry-one">♥</span>
             <span class="berry berry-two">♥</span>
             <span class="berry berry-three">♥</span>
@@ -216,6 +281,7 @@
             <span class="cream-pipe pipe-one">✿</span>
             <span class="cream-pipe pipe-two">✿</span>
             <span class="cream-pipe pipe-three">✿</span>
+
           </div>
 
           <div class="cake-body-real">
@@ -258,11 +324,13 @@
         </button>
 
       </div>
+
     </section>
 
 
-    <!-- SCENE 4: MEMORIES (NOW AFTER THE CAKE) -->
+    <!-- SCENE 4: MEMORIES -->
     <section class="scene" id="scene4">
+
       <div class="content wide-content">
 
         <p class="eyebrow">A LITTLE JOURNEY BACK IN TIME</p>
@@ -337,6 +405,7 @@
         <p id="photoCounter" class="memory-counter">01 / 10</p>
 
         <div class="photo-controls">
+
           <button id="previousPhoto" class="outline-button">
             ← Previous
           </button>
@@ -344,6 +413,7 @@
           <button id="nextPhotoButton" class="gold-button">
             Next memory →
           </button>
+
         </div>
 
         <p class="tiny-note">
@@ -355,11 +425,13 @@
         </button>
 
       </div>
+
     </section>
 
 
     <!-- SCENE 7: HEARTFELT LETTER -->
     <section class="scene" id="scene7">
+
       <div class="content letter-content">
 
         <p class="eyebrow">A FEW WORDS FROM THE HEART</p>
@@ -382,11 +454,13 @@
         </button>
 
       </div>
+
     </section>
 
 
     <!-- SCENE 8: EMOTIONAL FINALE -->
     <section class="scene" id="scene8">
+
       <div class="content final-content">
 
         <div class="final-star">✧</div>
@@ -408,24 +482,28 @@
           Happy 23rd Birthday, Musu. ♡
         </h2>
 
-<div class="thank-you-message">
-  <h3>And one last thing... ♡</h3>
+        <div class="thank-you-message">
 
-  <p>
-    Thank you for taking the time to go through
-    this little surprise. I hope it brought a smile
-    to your face and made your day a little more special.
-  </p>
+          <h3>And one last thing... ♡</h3>
 
-  <p class="thank-you-highlight">
-    Every little detail was made with love. ♡
-  </p>
-</div>
+          <p>
+            Thank you for taking the time to go through
+            this little surprise. I hope it brought a smile
+            to your face and made your day a little more special.
+          </p>
 
-<div class="sender-signature">
-  <span>With love,</span>
-  <p>Your Salu ikka 🌝</p>
-</div>
+          <p class="thank-you-highlight">
+            Every little detail was made with love. ♡
+          </p>
+
+        </div>
+
+        <div class="sender-signature">
+
+          <span>With love,</span>
+          <p>Your Salu ikka 🌝</p>
+
+        </div>
 
         <button id="replayButton" class="outline-button">
           ↺ Experience it again
@@ -436,6 +514,7 @@
         </p>
 
       </div>
+
     </section>
 
   </main>
