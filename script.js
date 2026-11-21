@@ -7,6 +7,84 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
+  
+  // =======================================
+  // SECRET PASSWORD VAULT
+  // =======================================
+
+  const correctPassword = "732133";
+  let enteredPassword = "";
+
+  const passwordScreen = document.getElementById("passwordScreen");
+  const passwordDots = document.querySelectorAll("#passwordDots span");
+  const passwordKeypad = document.getElementById("passwordKeypad");
+  const unlockButton = document.getElementById("unlockButton");
+  const passwordMessage = document.getElementById("passwordMessage");
+
+  function updatePasswordDots() {
+    passwordDots.forEach((dot, index) => {
+      dot.classList.toggle("filled", index < enteredPassword.length);
+    });
+  }
+
+  function clearPassword() {
+    enteredPassword = "";
+    updatePasswordDots();
+  }
+
+  if (passwordKeypad) {
+    passwordKeypad.addEventListener("click", (event) => {
+      const button = event.target.closest("[data-key]");
+      if (!button || passwordScreen.classList.contains("unlocking")) return;
+
+      const key = button.dataset.key;
+
+      if (key === "clear") {
+        clearPassword();
+        passwordMessage.textContent = "Password cleared. Try again ♡";
+      } else if (key === "delete") {
+        enteredPassword = enteredPassword.slice(0, -1);
+        updatePasswordDots();
+      } else if (/^\d$/.test(key) && enteredPassword.length < 6) {
+        enteredPassword += key;
+        updatePasswordDots();
+      }
+    });
+  }
+
+  if (unlockButton) {
+    unlockButton.addEventListener("click", () => {
+      if (enteredPassword.length !== 6) {
+        passwordMessage.textContent = "Enter all six digits first. 🌝";
+        return;
+      }
+
+      if (enteredPassword === correctPassword) {
+        passwordMessage.textContent = "The secret is unlocked... ♡";
+        passwordScreen.classList.add("unlocking");
+
+        setTimeout(() => {
+          passwordScreen.classList.remove("active");
+          document.getElementById("scene1").classList.add("active");
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }, 850);
+
+      } else {
+        passwordMessage.textContent =
+          "Hmm... that's not the magic key. Try again! 🌝";
+
+        passwordScreen.classList.add("wrong-password");
+
+        setTimeout(() => {
+          passwordScreen.classList.remove("wrong-password");
+        }, 400);
+
+        clearPassword();
+      }
+    });
+  }
+
+
   // =======================================
   // ELEMENTS AND VARIABLES
   // =======================================
@@ -429,19 +507,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const jokes = [
 
-    " sambavam ijj oru mointh anelum aa ahangaram ank iy kaniknilla 🙂‍↔️",
+    " sambavam ijj oru mointh anelum aa ahangaram iy kaniknilla 🙂‍↔️",
 
-    "ariyathe kitiyath anelum iyy oru gem anu💎 ( for me) 😌",
+    "ariyathe kitiyath anelum iyy oru sambavam anu💎 ( for me) 😌",
 
     " Aaa chiri eppoyum moth ndayikkanam...kettallo 😌",
 
-    " onnum parayanda  inn kore photos edk verthe ayakanam . 🌝",
+    "   inn kore photos ( snap ) okke  edth enik verthe ayakanam . 🌝",
 
     " njan paraynnath okke kanditt angt kombath keran nikanda 🙂‍↔️",
 
-    " ♡",
+    " nth ndelum njn ndakum nnod prynm too🌝",
 
-    "Today's schedule: Smile, eat cake, smile again. Repeat. 😂"
+    "Eppoyum nte ponn happy ayt irikanam 🙂‍↔️"
 
   ];
 
