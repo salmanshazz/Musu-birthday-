@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // SECRET PASSWORD VAULT
   // =======================================
 
-  const correctPassword = "732133";
+  const correctPassword = "702303";
   let enteredPassword = "";
 
   const passwordScreen = document.getElementById("passwordScreen");
