@@ -7,12 +7,14 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
+  
   // =======================================
-  // SECRET PASSWORD VAULT
+  // SECRET PASSWORD VAULT — IMPROVED
   // =======================================
 
   const correctPassword = "702303";
   let enteredPassword = "";
+  let passwordUnlocking = false;
 
   const passwordScreen = document.getElementById("passwordScreen");
   const passwordDots = document.querySelectorAll("#passwordDots span");
@@ -31,83 +33,133 @@ document.addEventListener("DOMContentLoaded", () => {
     updatePasswordDots();
   }
 
-  if (passwordKeypad && passwordScreen) {
+  function addPasswordDigit(digit) {
+    if (passwordUnlocking || enteredPassword.length >= 6) return;
+
+    enteredPassword += digit;
+    updatePasswordDots();
+  }
+
+  function deletePasswordDigit() {
+    if (passwordUnlocking) return;
+
+    enteredPassword = enteredPassword.slice(0, -1);
+    updatePasswordDots();
+  }
+
+  function checkPassword() {
+    if (passwordUnlocking) return;
+
+    if (enteredPassword.length !== 6) {
+      if (passwordMessage) {
+        passwordMessage.textContent = "Enter all six digits first. 🌝";
+      }
+      return;
+    }
+
+    if (enteredPassword === correctPassword) {
+      passwordUnlocking = true;
+
+      if (passwordMessage) {
+        passwordMessage.textContent = "The secret is unlocked... ♡";
+      }
+
+      if (unlockButton) {
+        unlockButton.disabled = true;
+      }
+
+      if (passwordScreen) {
+        passwordScreen.classList.add("unlocking");
+      }
+
+      setTimeout(() => {
+        if (passwordScreen) {
+          passwordScreen.classList.remove("active");
+        }
+
+        const firstScene = document.getElementById("scene1");
+
+        if (firstScene) {
+          firstScene.classList.add("active");
+        }
+
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+
+      }, 850);
+
+    } else {
+      if (passwordMessage) {
+        passwordMessage.textContent =
+          "Hmm... that's not the magic key. Try again! 🌝";
+      }
+
+      if (passwordScreen) {
+        passwordScreen.classList.add("wrong-password");
+
+        setTimeout(() => {
+          passwordScreen.classList.remove("wrong-password");
+        }, 400);
+      }
+
+      clearPassword();
+    }
+  }
+
+  // Number keypad
+  if (passwordKeypad) {
     passwordKeypad.addEventListener("click", (event) => {
       const button = event.target.closest("[data-key]");
 
-      if (!button || passwordScreen.classList.contains("unlocking")) return;
+      if (!button || passwordUnlocking) return;
 
       const key = button.dataset.key;
 
       if (key === "clear") {
         clearPassword();
+
         if (passwordMessage) {
-          passwordMessage.textContent = "Password cleared. Try again ♡";
+          passwordMessage.textContent = "Password cleared. ♡";
         }
+
       } else if (key === "delete") {
-        enteredPassword = enteredPassword.slice(0, -1);
-        updatePasswordDots();
-      } else if (/^\d$/.test(key) && enteredPassword.length < 6) {
-        enteredPassword += key;
-        updatePasswordDots();
+        deletePasswordDigit();
+
+      } else if (/^\d$/.test(key)) {
+        addPasswordDigit(key);
       }
     });
   }
 
+  // Unlock button
   if (unlockButton) {
-    unlockButton.addEventListener("click", () => {
-
-      if (enteredPassword.length !== 6) {
-        if (passwordMessage) {
-          passwordMessage.textContent = "Enter all six digits first. 🌝";
-        }
-        return;
-      }
-
-      if (enteredPassword === correctPassword) {
-
-        if (passwordMessage) {
-          passwordMessage.textContent = "The secret is unlocked... ♡";
-        }
-
-        if (passwordScreen) {
-          passwordScreen.classList.add("unlocking");
-        }
-
-        setTimeout(() => {
-          if (passwordScreen) {
-            passwordScreen.classList.remove("active");
-          }
-
-          const firstScene = document.getElementById("scene1");
-
-          if (firstScene) {
-            firstScene.classList.add("active");
-          }
-
-          window.scrollTo({ top: 0, behavior: "smooth" });
-
-        }, 850);
-
-      } else {
-
-        if (passwordMessage) {
-          passwordMessage.textContent =
-            "Hmm... that's not the magic key. Try again! 🌝";
-        }
-
-        if (passwordScreen) {
-          passwordScreen.classList.add("wrong-password");
-
-          setTimeout(() => {
-            passwordScreen.classList.remove("wrong-password");
-          }, 400);
-        }
-
-        clearPassword();
-      }
-    });
+    unlockButton.addEventListener("click", checkPassword);
   }
+
+  // Physical keyboard support
+  document.addEventListener("keydown", (event) => {
+    if (
+      !passwordScreen ||
+      !passwordScreen.classList.contains("active") ||
+      passwordUnlocking
+    ) return;
+
+    if (/^\d$/.test(event.key)) {
+      addPasswordDigit(event.key);
+
+    } else if (event.key === "Backspace") {
+      deletePasswordDigit();
+
+    } else if (event.key === "Escape") {
+      clearPassword();
+
+    } else if (event.key === "Enter") {
+      checkPassword();
+    }
+  });
+
 
 
   // =======================================
