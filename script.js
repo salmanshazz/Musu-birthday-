@@ -2,12 +2,11 @@
 /* =========================================
    MUSU — A BIRTHDAY STORY
    Complete Main JavaScript
-   Updated birthday experience
+   Fixed Version
 ========================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
 
-  
   // =======================================
   // SECRET PASSWORD VAULT
   // =======================================
@@ -32,16 +31,19 @@ document.addEventListener("DOMContentLoaded", () => {
     updatePasswordDots();
   }
 
-  if (passwordKeypad) {
+  if (passwordKeypad && passwordScreen) {
     passwordKeypad.addEventListener("click", (event) => {
       const button = event.target.closest("[data-key]");
+
       if (!button || passwordScreen.classList.contains("unlocking")) return;
 
       const key = button.dataset.key;
 
       if (key === "clear") {
         clearPassword();
-        passwordMessage.textContent = "Password cleared. Try again ♡";
+        if (passwordMessage) {
+          passwordMessage.textContent = "Password cleared. Try again ♡";
+        }
       } else if (key === "delete") {
         enteredPassword = enteredPassword.slice(0, -1);
         updatePasswordDots();
@@ -54,30 +56,53 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (unlockButton) {
     unlockButton.addEventListener("click", () => {
+
       if (enteredPassword.length !== 6) {
-        passwordMessage.textContent = "Enter all six digits first. 🌝";
+        if (passwordMessage) {
+          passwordMessage.textContent = "Enter all six digits first. 🌝";
+        }
         return;
       }
 
       if (enteredPassword === correctPassword) {
-        passwordMessage.textContent = "The secret is unlocked... ♡";
-        passwordScreen.classList.add("unlocking");
+
+        if (passwordMessage) {
+          passwordMessage.textContent = "The secret is unlocked... ♡";
+        }
+
+        if (passwordScreen) {
+          passwordScreen.classList.add("unlocking");
+        }
 
         setTimeout(() => {
-          passwordScreen.classList.remove("active");
-          document.getElementById("scene1").classList.add("active");
+          if (passwordScreen) {
+            passwordScreen.classList.remove("active");
+          }
+
+          const firstScene = document.getElementById("scene1");
+
+          if (firstScene) {
+            firstScene.classList.add("active");
+          }
+
           window.scrollTo({ top: 0, behavior: "smooth" });
+
         }, 850);
 
       } else {
-        passwordMessage.textContent =
-          "Hmm... that's not the magic key. Try again! 🌝";
 
-        passwordScreen.classList.add("wrong-password");
+        if (passwordMessage) {
+          passwordMessage.textContent =
+            "Hmm... that's not the magic key. Try again! 🌝";
+        }
 
-        setTimeout(() => {
-          passwordScreen.classList.remove("wrong-password");
-        }, 400);
+        if (passwordScreen) {
+          passwordScreen.classList.add("wrong-password");
+
+          setTimeout(() => {
+            passwordScreen.classList.remove("wrong-password");
+          }, 400);
+        }
 
         clearPassword();
       }
@@ -104,12 +129,10 @@ document.addEventListener("DOMContentLoaded", () => {
   // 1. CHANGE THE STORY ORDER
   // =======================================
 
-  // Birthday reveal goes to funny surprise
   const birthdayNext = document.querySelector(
     '#scene3 [data-next="scene5"]'
   );
 
-  // Memories go directly to the letter
   const memoriesNext = document.querySelector(
     '#scene4 [data-next="scene7"]'
   );
@@ -118,13 +141,11 @@ document.addEventListener("DOMContentLoaded", () => {
     memoriesNext.textContent = "Continue to your letter ♡ →";
   }
 
-  // Cake button opens memories after candle is blown
   const cakeContinue = document.getElementById("cakeContinue");
 
   if (cakeContinue) {
     cakeContinue.classList.add("hidden");
   }
-
 
 
   // =======================================
@@ -147,11 +168,8 @@ document.addEventListener("DOMContentLoaded", () => {
       top: 0,
       behavior: "smooth"
     });
-
   }
 
-
-  // Register navigation AFTER changing the routes above
 
   document.querySelectorAll("[data-next]").forEach(button => {
 
@@ -241,7 +259,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       return;
-
     }
 
     const days = Math.floor(
@@ -312,8 +329,6 @@ document.addEventListener("DOMContentLoaded", () => {
   ];
 
 
-  // Update the counter and arrange the stack
-
   function arrangePhotoStack() {
 
     if (!photoGallery) return;
@@ -373,8 +388,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
-  // Next memory
-
   function moveToNextPhoto() {
 
     if (isAnimating || photoCards.length < 2) return;
@@ -401,8 +414,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   }
 
-
-  // Previous memory
 
   function moveToPreviousPhoto() {
 
@@ -436,8 +447,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   }
 
-
-  // Initialize gallery
 
   function initializeGallery() {
 
@@ -479,7 +488,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
       });
 
-      // Catch images that failed before the error listener was attached
       if (image.complete && image.naturalWidth === 0) {
         image.dispatchEvent(new Event("error"));
       }
@@ -507,21 +515,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const jokes = [
 
-    " sambavam ijj oru mointh anelum aa ahangaram iy kaniknilla 🙂‍↔️",
+    "sambavam ijj oru mointh anelum aa ahangaram iy kaniknilla 🙂‍↔️",
 
-    "ariyathe kitiyath anelum iyy oru sambavam anu💎 ( for me) 😌",
+    "ariyathe kitiyath anelum iyy oru sambavam anu 💎 (for me) 😌",
 
-    " Aaa chiri eppoyum moth ndayikkanam...kettallo 😌",
+    "Aaa chiri eppoyum moth ndayikkanam... kettallo 😌",
 
-    "   inn kore photos ( snap ) okke  edth enik verthe ayakanam . 🌝",
+    "inn kore photos (snap) okke edth enik verthe ayakanam 🌝",
 
-    " njan paraynnath okke kanditt angt kombath keran nikanda 🙂‍↔️",
+    "njan paraynnath okke kanditt angt kombath keran nikanda 🙂‍↔️",
 
-    " nth ndelum nnod prynm too🌝",
+    "nth ndelum nnod prynm too 🌝",
 
-    "Eppoyum nte ponn happy ayt irikanam 🙂‍↔️"
-    
-    " pinne inn njan angot varnn und appo tharand bakki.",
+    "Eppoyum nte ponn happy ayt irikanam 🙂‍↔️",
+
+    "pinne inn njan angot varnn und appo tharand bakki."
 
   ];
 
@@ -603,10 +611,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
       candleBlown = true;
 
-      // Extinguish candle
       flame.style.display = "none";
 
-      // Show wish message
       wishMessage.textContent =
         "May every beautiful wish find its way to you. ♡";
 
@@ -616,7 +622,6 @@ document.addEventListener("DOMContentLoaded", () => {
         relightButton.classList.remove("hidden");
       }
 
-      // Reveal memories button after the wish
       if (cakeContinue) {
 
         setTimeout(() => {
@@ -797,7 +802,6 @@ Stay happy. Stay childish. Stay wonderful. Always. 💕`;
 
     replayButton.addEventListener("click", () => {
 
-      // Stop any typing already in progress
       if (letterTimer) {
         clearTimeout(letterTimer);
         letterTimer = null;
@@ -805,7 +809,6 @@ Stay happy. Stay childish. Stay wonderful. Always. 💕`;
 
       letterStarted = false;
 
-      // Reset letter
       if (letterText) {
         letterText.textContent = "";
       }
@@ -824,10 +827,8 @@ Stay happy. Stay childish. Stay wonderful. Always. 💕`;
         letterNext.classList.add("hidden");
       }
 
-      // Reset cake
       resetCake();
 
-      // Reset gallery
       if (photoGallery) {
 
         photoCards = Array.from(
@@ -845,11 +846,9 @@ Stay happy. Stay childish. Stay wonderful. Always. 💕`;
 
       }
 
-      // Reset jokes
       lastJoke = -1;
       showRandomJoke();
 
-      // Return to beginning
       showScene("scene1");
 
     });
