@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // SECRET PASSWORD VAULT — IMPROVED
   // =======================================
 
-  const correctPassword = "702303";
+  const correctPassword = "702203";
   let enteredPassword = "";
   let passwordUnlocking = false;
 
