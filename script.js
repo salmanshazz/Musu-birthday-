@@ -517,9 +517,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     " njan paraynnath okke kanditt angt kombath keran nikanda 🙂‍↔️",
 
-    " nth ndelum njn ndakum nnod prynm too🌝",
+    " nth ndelum nnod prynm too🌝",
 
     "Eppoyum nte ponn happy ayt irikanam 🙂‍↔️"
+    
+    " pinne inn njan angot varnn und appo tharand bakki.",
 
   ];
 
@@ -707,23 +709,21 @@ document.addEventListener("DOMContentLoaded", () => {
   // 9. HEARTFELT LETTER
   // =======================================
 
-  const letter = `I don't know if words can ever describe how special a person can be.
+  const letter = `I don't know if words can ever truly describe how special a person can become in such a short time.
 
-But today, I just want to wish you something more than a happy birthday.
+It's only been a month since you unexpectedly came into my life, but somehow, you've become someone I genuinely cherish. Your beautiful smile, your kindness, your little childish behaviours, the way you talk, and all those tiny things that make you who you are — I love every little bit of it. ❤️
 
-May you always have reasons to smile, courage when life gets difficult, and people who genuinely care about you.
+On your special day, I pray that Allah fills your life with endless happiness, protects your beautiful heart, makes every difficult day easier, accepts your duas and blesses you with everything you've ever wished for. May He always give you reasons to smile and keep you safe and happy.🤍
 
-Keep being your lovely, unique self. Never let the little things take away your beautiful smile.
+I hope you never lose that lovely smile or the little things that make you so uniquely you. And whenever life gets difficult, I hope you find the strength to get through it and always remember how special you are.
 
-And please remember to enjoy your birthday properly. Eat cake, laugh loudly, take lots of pictures and be a little dramatic. You have permission today. 😂
+May this new chapter bring you beautiful memories, unexpected happiness and everything your heart quietly wishes for.
 
-I hope this new chapter brings you beautiful memories, unexpected happiness and everything your heart quietly wishes for.
+I'm genuinely glad our paths crossed, Musu. Even though it's only been a little while, you've become a beautiful part of my days. I don't know what the future holds, but I'm happy to have met you. ❤️
 
-You deserve all the good things life has to offer.
+Happy Birthday, my dearest Musu.
 
-Happy Birthday, Musu.
-
-Stay happy. Stay wonderful. Always. ♡`;
+Stay happy. Stay childish. Stay wonderful. Always. 💕`;
 
 
   const letterText = document.getElementById("letterText");
