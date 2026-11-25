@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#08070a">
-  <meta name="description" content="A little birthday surprise made for Musu.">
+  <meta name="description" content="A little birthday surprise made with love for Musu.">
 
   <title>For Musu ♡</title>
 
@@ -21,11 +21,12 @@
 
   <div id="particles" aria-hidden="true"></div>
 
+  <!-- BACKGROUND MUSIC -->
   <audio id="bgMusic" loop preload="none">
     <source src="romantic.mp3" type="audio/mpeg">
   </audio>
 
-  <button id="musicToggle" class="music-toggle" aria-label="Toggle music">
+  <button type="button" id="musicToggle" class="music-toggle" aria-label="Toggle music">
     ♫ <span id="musicLabel">Music off</span>
   </button>
 
@@ -55,6 +56,7 @@
         </div>
 
         <div class="keypad" id="passwordKeypad">
+
           <button type="button" data-key="1">1</button>
           <button type="button" data-key="2">2</button>
           <button type="button" data-key="3">3</button>
@@ -70,13 +72,14 @@
           <button type="button" data-key="clear">C</button>
           <button type="button" data-key="0">0</button>
           <button type="button" data-key="delete">⌫</button>
+
         </div>
 
         <button type="button" id="unlockButton" class="gold-button">
           Unlock my surprise ♡
         </button>
 
-        <p id="passwordMessage" class="password-message">
+        <p id="passwordMessage" class="password-message" aria-live="polite">
           Only someone special knows the answer...
         </p>
 
@@ -107,7 +110,7 @@
           And this one begins with someone special.
         </p>
 
-        <button class="gold-button" data-next="scene2">
+        <button type="button" class="gold-button" data-next="scene2">
           Enter your little world <span>→</span>
         </button>
 
@@ -143,7 +146,7 @@
           something special for you.
         </p>
 
-        <button class="gold-button" data-next="scene3">
+        <button type="button" class="gold-button" data-next="scene3">
           Discover who <span>→</span>
         </button>
 
@@ -203,7 +206,7 @@
 
         <p id="birthdayStatus" class="subtext"></p>
 
-        <button class="gold-button" data-next="scene5">
+        <button type="button" class="gold-button" data-next="scene5">
           Let's continue <span>→</span>
         </button>
 
@@ -229,17 +232,17 @@
 
         <div class="joke-card">
 
-          <p id="jokeText">
+          <p id="jokeText" aria-live="polite">
             Loading a very important birthday fact...
           </p>
 
         </div>
 
-        <button id="jokeButton" class="outline-button">
+        <button type="button" id="jokeButton" class="outline-button">
           Reveal another secret 😌
         </button>
 
-        <button class="gold-button" data-next="scene6">
+        <button type="button" class="gold-button" data-next="scene6">
           Okay, I'm ready <span>→</span>
         </button>
 
@@ -306,20 +309,25 @@
 
         </div>
 
-        <p id="wishMessage" class="subtext">
+        <p id="wishMessage" class="subtext" aria-live="polite">
           Your wish is waiting...
         </p>
 
-        <button id="blowButton" class="gold-button">
+        <button type="button" id="blowButton" class="gold-button">
           Blow out the candle ✨
         </button>
 
-        <button id="relightButton" class="outline-button hidden">
+        <button type="button" id="relightButton" class="outline-button hidden">
           Light it again
         </button>
 
-        <!-- Appears after the candle is blown out -->
-        <button id="cakeContinue" class="text-button hidden" data-next="scene4">
+        <!-- REVEALS MEMORIES AFTER BLOWING THE CANDLE -->
+        <button
+          type="button"
+          id="cakeContinue"
+          class="text-button hidden"
+          data-next="scene4"
+        >
           Let's look at some memories ♡ →
         </button>
 
@@ -351,66 +359,68 @@
         <div class="photo-gallery" id="photoGallery">
 
           <figure class="photo-card">
-            <img src="photo1.jpg" alt="Musu memory 1">
+            <img src="photo1.jpg" alt="Musu memory 1" loading="lazy" decoding="async">
             <figcaption>A beautiful little moment ♡</figcaption>
           </figure>
 
           <figure class="photo-card">
-            <img src="photo2.jpg" alt="Musu memory 2">
+            <img src="photo2.jpg" alt="Musu memory 2" loading="lazy" decoding="async">
             <figcaption>Some memories stay forever.</figcaption>
           </figure>
 
           <figure class="photo-card">
-            <img src="photo3.jpg" alt="Musu memory 3">
+            <img src="photo3.jpg" alt="Musu memory 3" loading="lazy" decoding="async">
             <figcaption>A moment worth remembering.</figcaption>
           </figure>
 
           <figure class="photo-card">
-            <img src="photo4.jpg" alt="Musu memory 4">
+            <img src="photo4.jpg" alt="Musu memory 4" loading="lazy" decoding="async">
             <figcaption>Little things, big feelings.</figcaption>
           </figure>
 
           <figure class="photo-card">
-            <img src="photo5.jpg" alt="Musu memory 5">
+            <img src="photo5.jpg" alt="Musu memory 5" loading="lazy" decoding="async">
             <figcaption>Keep smiling like this.</figcaption>
           </figure>
 
           <figure class="photo-card">
-            <img src="photo6.jpg" alt="Musu memory 6">
+            <img src="photo6.jpg" alt="Musu memory 6" loading="lazy" decoding="async">
             <figcaption>One for the memory book.</figcaption>
           </figure>
 
           <figure class="photo-card">
-            <img src="photo7.jpg" alt="Musu memory 7">
+            <img src="photo7.jpg" alt="Musu memory 7" loading="lazy" decoding="async">
             <figcaption>Another lovely chapter.</figcaption>
           </figure>
 
           <figure class="photo-card">
-            <img src="photo8.jpg" alt="Musu memory 8">
+            <img src="photo8.jpg" alt="Musu memory 8" loading="lazy" decoding="async">
             <figcaption>And the story goes on...</figcaption>
           </figure>
 
           <figure class="photo-card">
-            <img src="photo9.jpg" alt="Musu memory 9">
+            <img src="photo9.jpg" alt="Musu memory 9" loading="lazy" decoding="async">
             <figcaption>Unforgettable, just like you.</figcaption>
           </figure>
 
           <figure class="photo-card">
-            <img src="photo10.jpg" alt="Musu memory 10">
+            <img src="photo10.jpg" alt="Musu memory 10" loading="lazy" decoding="async">
             <figcaption>A little piece of happiness.</figcaption>
           </figure>
 
         </div>
 
-        <p id="photoCounter" class="memory-counter">01 / 10</p>
+        <p id="photoCounter" class="memory-counter" aria-live="polite">
+          01 / 10
+        </p>
 
         <div class="photo-controls">
 
-          <button id="previousPhoto" class="outline-button">
+          <button type="button" id="previousPhoto" class="outline-button">
             ← Previous
           </button>
 
-          <button id="nextPhotoButton" class="gold-button">
+          <button type="button" id="nextPhotoButton" class="gold-button">
             Next memory →
           </button>
 
@@ -420,8 +430,8 @@
           Every picture holds a little piece of a beautiful story.
         </p>
 
-        <button class="gold-button" data-next="scene7">
-          Continue to something special ♡ →
+        <button type="button" class="gold-button" data-next="scene7">
+          Continue to your letter ♡ →
         </button>
 
       </div>
@@ -441,15 +451,23 @@
         </h2>
 
         <div class="letter-paper">
+
           <p id="letterText"></p>
+
           <span class="letter-cursor">|</span>
+
         </div>
 
-        <button id="letterButton" class="gold-button">
+        <button type="button" id="letterButton" class="gold-button">
           Open your letter ♡
         </button>
 
-        <button class="gold-button hidden" id="letterNext" data-next="scene8">
+        <button
+          type="button"
+          class="gold-button hidden"
+          id="letterNext"
+          data-next="scene8"
+        >
           One last thing... <span>→</span>
         </button>
 
@@ -498,14 +516,16 @@
 
         </div>
 
+        <!-- SENDER REVEAL -->
         <div class="sender-signature">
 
           <span>With love,</span>
+
           <p>Your Salu ikka 🌝</p>
 
         </div>
 
-        <button id="replayButton" class="outline-button">
+        <button type="button" id="replayButton" class="outline-button">
           ↺ Experience it again
         </button>
 
